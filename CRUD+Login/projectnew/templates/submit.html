@@ -1,0 +1,29 @@
+
+<table> 
+    <thead><tr>
+        <th>ID</th>
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Password</th>
+    </tr> </thead>
+
+    {% if key1 %}
+   
+     <tbody>
+        {% for i in key1 %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.Firstname}}</td>
+            <td>{{i.Lastname}}</td>
+            <td>{{i.Psw}}</td>
+        </tr>  
+            {% endfor %}
+
+
+        
+     </tbody>
+     {% endif %}
+
+     
+    
+    </table>
