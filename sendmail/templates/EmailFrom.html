@@ -1,0 +1,24 @@
+<!-- email_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Email</title>
+</head>
+<body>
+    <h1>Send Email</h1>
+    
+    {% if success_message %}
+        <p>{{ success_message }}</p>
+    {% endif %}
+    
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    
+    <form action ="{% url 'send2_email'%}" method="post">
+        {% csrf_token %}
+        <button type="submit">Send Another Email</button>
+    </form>
+</body>
+</html>
