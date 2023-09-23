@@ -5,6 +5,9 @@
         <th>First_Name</th>
         <th>Last_Name</th>
         <th>Password</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
     </tr> </thead>
 
     {% if key1 %}
@@ -16,6 +19,18 @@
             <td>{{i.Firstname}}</td>
             <td>{{i.Lastname}}</td>
             <td>{{i.Psw}}</td>
+            <td><form name="Edit" action="{% url 'edit' pk=i.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Edit">
+
+            </form></td>
+
+            <td><form name="Delete" action="" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+
+            </form></td>
+           
         </tr>  
             {% endfor %}
 

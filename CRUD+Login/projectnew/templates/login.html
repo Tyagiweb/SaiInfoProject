@@ -45,10 +45,11 @@ button {
 </style>   
 </head>    
 <body>    
-    <center> <h1> Student Login Form </h1> </center>   
+    <center> <h1> Sai Info Form </h1> </center>   
     <form action="{% url 'validuser' %}" method="post">
         {% csrf_token %}  
-        <div class="container">   
+        <div class="container"> 
+            <label>Username will be your First name : </label>     
             <label>Username : </label>   
             <input type="text" placeholder="Enter Username" name="username" required>  
             <label>Password : </label>   

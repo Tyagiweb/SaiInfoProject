@@ -23,8 +23,8 @@ def data(request):
     psw=request.POST['psw']
     user=Student.objects.create(Firstname=firstname,Middlename=middlename,Lastname=lastname,Mobile=phone,
                                 Adress=adress,Email=email,Psw=psw)
-    return HttpResponseRedirect('login')                            
-    #return render(request,'submit2.html')
+    return redirect('login')                            
+    
     
 
 def viewdata(request):
@@ -49,7 +49,29 @@ def validuser(request):
                 return render(request,'login.html',{'msg':message})
         else:
             message="User not exist"
-            return render(request,'register.html',{'msg':message})    
+            return render(request,'register.html',{'msg':message})   
+
+
+#Edit
+def EditPage(request,pk):
+    get_data=Student.objects.get(id=pk) 
+    return render(request,'edit.html',{'key2':get_data})  
+
+
+#Update
+
+def UpdateData(request,pk):
+    udata=Student.objects.get(id=pk)
+    udata.Firstname=request.POST['firstname']
+    udata.Middlename=request.POST['middlename']
+    udata.Lastname=request.POST['lastname']
+    udata.Mobile=request.POST['phone']
+    udata.Adress=request.POST['adress']
+    udata.Email=request.POST['email']
+    udata.Psw=request.POST['psw']
+    udata.save()
+    return redirect('login')
+
     
       
 

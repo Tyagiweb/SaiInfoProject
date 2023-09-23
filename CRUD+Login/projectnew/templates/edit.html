@@ -46,59 +46,38 @@ hr {
 }  
 </style>  
 </head>  
-<body>  
-<form action="{% url 'registerdata' %}" method="post">  
+<body> 
+    {% if key2 %} 
+
+<form action="{% url 'update' pk=key2.id %}" method="post">  
   {% csrf_token %}
   <div class="container">  
-  <center>  <h1> Student Registeration Form</h1> </center>  
+  <center>  <h1> Update Form</h1> </center>  
   <hr>  
   <label> Firstname </label>   
-<input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
+<input type="text" name="firstname" placeholder= "Firstname" size="15" value="{{key2.Firstname}}" required />   
 <label> Middlename: </label>   
-<input type="text" name="middlename" placeholder="Middlename" size="15" required />   
+<input type="text" name="middlename" placeholder="Middlename" size="15" value="{{key2.Middlename}}" required />   
 <label> Lastname: </label>    
-<input type="text" name="lastname" placeholder="Lastname" size="15"required />   
-<!-- <div>  
-<label>   
-Course :  
-</label>   
-  
-<select>  
-<option value="Course">Course</option>  
-<option value="BCA">BCA</option>  
-<option value="BBA">BBA</option>  
-<option value="B.Tech">B.Tech</option>  
-<option value="MBA">MBA</option>  
-<option value="MCA">MCA</option>  
-<option value="M.Tech">M.Tech</option>  
-</select>  
-</div>   -->
-<!-- <div>  
-<label>   
-Gender :  
-</label><br>  
-<input type="radio" value="Male" name="gender" checked > Male   
-<input type="radio" value="Female" name="gender"> Female   
-<input type="radio" value="Other" name="gender"> Other  
-  
-</div>   -->
+<input type="text" name="lastname" placeholder="Lastname" size="15" value="{{key2.Lastname}}"required />   
 <label>   
 Phone :  
 </label>  
 <!-- <input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>    -->
-<input type="text" name="phone" placeholder="phone no." size="10"/ required>   
+<input type="text" name="phone" placeholder="phone no." size="10" value="{{key2.Mobile}}" required>   
 Current Address :  
-<textarea cols="80" name="adress" rows="5" placeholder="Current Address" value="address" required>  
+<textarea cols="80" name="adress" rows="5" placeholder="Current Address" value="{{key2.Adress}}" required>  
 </textarea>  
  <label for="email"><b>Email</b></label>  
- <input type="text" placeholder="Enter Email" name="email" required>  
+ <input type="text" placeholder="Enter Email" name="email" value="{{key2.Email}}" required>  
   
     <label for="psw"><b>Password</b></label>  
-    <input type="password" placeholder="Enter Password" name="psw" required>  
+    <input type="password" placeholder="Enter Password" name="psw" value="{{key2.Psw}}" required>  
   
     <!-- <label for="psw-repeat"><b>Re-type Password</b></label>  
     <input type="password" placeholder="Retype Password" name="psw-repeat" required>   -->
-    <button type="submit" class="registerbtn">Register</button>    
-</form>  
+    <button type="submit" class="registerbtn">Update</button>    
+</form> 
+{% endif %} 
 </body>  
 </html>

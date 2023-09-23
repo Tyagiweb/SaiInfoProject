@@ -12,6 +12,8 @@ urlpatterns = [
     path('viewdata/', views.viewdata,name='viewdata'),
     path('login/viewdata2/', views.viewdata,name='viewdata2'),
     path('login/validuser', views.validuser,name='validuser'),
+    path('edit/<int:pk>', views.EditPage,name='edit'),
+    path('update/<int:pk>', views.UpdateData,name='update'),
     
 
 ]
